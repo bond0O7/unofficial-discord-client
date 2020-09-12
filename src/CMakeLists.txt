@@ -6,6 +6,7 @@ add_executable(unofficial-discord-client
     DiscordApi/DiscordAPI.hpp
     DiscordApi/Constructs.hpp
     Authenticator.cpp Authenticator.hpp
+    Requester.cpp Requester.hpp
 )
 
 target_link_libraries(unofficial-discord-client PRIVATE Qt5::Widgets Qt5::Network)
