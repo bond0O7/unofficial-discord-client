@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Authenticator.hpp"
+#include "Requester.hpp"
 
 #include <QMainWindow>
 #include <QMenu>
@@ -24,6 +25,7 @@ class MainWindow : public QMainWindow
   private slots:
     void quit();
     void aboutClicked();
+    void retrievePersonalInfo(const QString token);
 
   private:
     Ui::MainWindow *ui;
@@ -36,6 +38,7 @@ class MainWindow : public QMainWindow
     QPushButton m_login;
 
     Authenticator m_auth;
+    Requester m_req;
 
     void createMenuBar();
     void createLoginWidget();

@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
     createMenuBar();
 
     createLoginWidget();
+
+    connect(&m_auth, &Authenticator::authenticationFinished, this,
+            &MainWindow::retrievePersonalInfo);
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +36,12 @@ void MainWindow::aboutClicked()
     QMessageBox::information(
         this, "About",
         QString("Version %1").arg(QApplication::applicationVersion()));
+}
+
+void MainWindow::retrievePersonalInfo(const QString token)
+{
+    m_req.setToken(token);
+    m_req.requestGuilds();
 }
 
 void MainWindow::createMenuBar()

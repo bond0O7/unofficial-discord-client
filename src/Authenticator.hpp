@@ -11,6 +11,9 @@ class Authenticator : public QObject
     Authenticator(QObject *parent = nullptr);
     ~Authenticator() override;
 
+  signals:
+    void authenticationFinished(const QString &token);
+
   public slots:
     void requestLogin();
 
